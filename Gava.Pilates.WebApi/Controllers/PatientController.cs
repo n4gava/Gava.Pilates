@@ -8,7 +8,7 @@ namespace Gava.Pilates.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class PatientController : ControllerBase
     {
         // GET api/values
         [HttpGet]

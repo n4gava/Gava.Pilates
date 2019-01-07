@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gava.Pilates.WebApi", "Gava.Pilates.WebApi\Gava.Pilates.WebApi.csproj", "{17080385-C37F-4E4D-9550-F42BC4B24C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gava.Pilates.WebApi", "Gava.Pilates.WebApi\Gava.Pilates.WebApi.csproj", "{17080385-C37F-4E4D-9550-F42BC4B24C48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gava.Pilates.Models", "Gava.Pilates.Models\Gava.Pilates.Models.csproj", "{AAD9C967-CB90-468D-BD55-9012B4FCF206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gava.Framework.WebApi", "Gava.Framework.WebApi\Gava.Framework.WebApi.csproj", "{81C8F866-A8C2-4288-850C-DA0F5B6211FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{17080385-C37F-4E4D-9550-F42BC4B24C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17080385-C37F-4E4D-9550-F42BC4B24C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17080385-C37F-4E4D-9550-F42BC4B24C48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD9C967-CB90-468D-BD55-9012B4FCF206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD9C967-CB90-468D-BD55-9012B4FCF206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD9C967-CB90-468D-BD55-9012B4FCF206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD9C967-CB90-468D-BD55-9012B4FCF206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C8F866-A8C2-4288-850C-DA0F5B6211FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C8F866-A8C2-4288-850C-DA0F5B6211FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C8F866-A8C2-4288-850C-DA0F5B6211FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C8F866-A8C2-4288-850C-DA0F5B6211FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
