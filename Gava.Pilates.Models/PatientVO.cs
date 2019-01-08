@@ -1,4 +1,5 @@
-﻿using Gava.Framework.WebApi;
+﻿using Gava.Framework.Entities;
+using Gava.Framework.WebApi;
 using System;
 
 namespace Gava.Pilates.Models

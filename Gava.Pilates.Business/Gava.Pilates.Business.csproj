@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gava.Framework.DataAccess\Gava.Framework.DataAccess.csproj" />
     <ProjectReference Include="..\Gava.Framework.Entities\Gava.Framework.Entities.csproj" />
-    <ProjectReference Include="..\Gava.Framework.WebApi\Gava.Framework.WebApi.csproj" />
+    <ProjectReference Include="..\Gava.Pilates.Models\Gava.Pilates.Models.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gava.Framework.WebApi\Gava.Framework.WebApi.csproj" />
+    <ProjectReference Include="..\Gava.Pilates.Business\Gava.Pilates.Business.csproj" />
     <ProjectReference Include="..\Gava.Pilates.Models\Gava.Pilates.Models.csproj" />
   </ItemGroup>
 

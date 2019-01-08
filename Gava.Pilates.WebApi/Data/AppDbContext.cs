@@ -1,4 +1,4 @@
-﻿using Gava.Pilates.WebApi.Entities;
+﻿using Gava.Pilates.Business.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace Gava.Pilates.WebApi.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
+            this.Database.Migrate();
         }
 
         public DbSet<Patient> Pacients { get; set; }
