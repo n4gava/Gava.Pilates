@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Gava.Framework.DataAccess;
+﻿using Gava.Framework.DataAccess;
 using Gava.Pilates.Business.Business;
+using Gava.Pilates.Business.Entities;
 using Gava.Pilates.WebApi.Data;
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Microsoft.OData.Edm;
 
 namespace Gava.Pilates.WebApi
 {
@@ -36,6 +31,7 @@ namespace Gava.Pilates.WebApi
             services.AddScoped<DbContext, AppDbContext>();
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<PatientsBusiness>();
+            services.AddOData();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +47,17 @@ namespace Gava.Pilates.WebApi
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(b =>
+            {
+                b.MapODataServiceRoute("oData", "odata", GetEdmModel());
+            });
+        }
+
+        private static IEdmModel GetEdmModel()
+        {
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Patient>("Patients");
+            return builder.GetEdmModel();
         }
     }
 }

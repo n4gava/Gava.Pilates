@@ -1,10 +1,8 @@
-﻿using Gava.Framework.Entities;
-using Gava.Framework.WebApi;
-using System;
+﻿using Gava.Framework.VO;
 
 namespace Gava.Pilates.Models
 {
-    public class PatientVO : BaseModel
+    public class PatientVO : BaseValueObject
     {
         public string FirstName { get; set; }
 

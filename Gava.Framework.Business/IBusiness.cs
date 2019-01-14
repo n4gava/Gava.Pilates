@@ -1,19 +1,17 @@
 ﻿using Gava.Framework.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Gava.Framework.Business
 {
-    public interface IBusiness<TModel> where TModel : IModel
+    public interface IBusiness<TEntity> where TEntity : IEntity
     {
-        TModel FindById(long id);
+        TEntity FindById(long id);
 
-        List<TModel> FindAll();
+        List<TEntity> FindAll();
 
-        TModel Insert(TModel patient);
+        TEntity Insert(TEntity patient);
 
-        TModel Update(TModel patient);
+        TEntity Update(TEntity patient);
 
         void Delete(long id);
     }

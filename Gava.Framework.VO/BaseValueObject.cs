@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Gava.Framework.Entities
+namespace Gava.Framework.VO
 {
-    public class BaseModel : IModel
+    public abstract class BaseValueObject : IValueObject
     {
         public long? Id { get; set; }
-
+        
     }
 }
