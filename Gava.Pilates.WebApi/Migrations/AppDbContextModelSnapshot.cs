@@ -18,7 +18,7 @@ namespace Gava.Pilates.WebApi.Migrations
 
             modelBuilder.Entity("Gava.Pilates.Business.Entities.Patient", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long?>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("BirthDate");
@@ -29,7 +29,7 @@ namespace Gava.Pilates.WebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pacients");
+                    b.ToTable("Patients");
                 });
 #pragma warning restore 612, 618
         }

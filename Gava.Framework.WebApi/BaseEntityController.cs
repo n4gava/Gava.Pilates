@@ -1,21 +1,18 @@
 ﻿using Gava.Framework.Business;
 using Gava.Framework.Entities;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Gava.Framework.WebApi
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BaseEntityController<TEntity, TVO> : ControllerBase where TVO: IModel where TEntity: IEntity
+    public class BaseEntityController<TEntity> : ODataController where TEntity: IEntity
     {
         private DbContext _dbContext;
-        private IBusiness<TVO> _business;
+        private IBusiness<TEntity> _business;
 
-        public BaseEntityController(DbContext dbContext, IBusiness<TVO> business)
+        public BaseEntityController(DbContext dbContext, IBusiness<TEntity> business)
         {
             _dbContext = dbContext;
             _business = business;
@@ -23,6 +20,7 @@ namespace Gava.Framework.WebApi
 
         // GET api/values
         [HttpGet]
+        [EnableQuery]
         public ActionResult Get()
         {
             return Ok(_business.FindAll());
@@ -30,6 +28,7 @@ namespace Gava.Framework.WebApi
 
         // GET api/values/5
         [HttpGet("{id}")]
+        [EnableQuery]
         public ActionResult Get(long id)
         {
             return Ok(_business.FindById(id));
@@ -37,18 +36,18 @@ namespace Gava.Framework.WebApi
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody] TVO model)
+        public ActionResult Post([FromBody] TEntity entity)
         {
-            if (model == null) return BadRequest();
-            return Ok(_business.Insert(model));
+            if (entity == null) return BadRequest();
+            return Ok(_business.Insert(entity));
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public ActionResult Put(long id, [FromBody] TVO model)
+        public ActionResult Put(long id, [FromBody] TEntity entity)
         {
-            if (model == null) return BadRequest();
-            return Ok(_business.Update(model));
+            if (entity == null) return BadRequest();
+            return Ok(_business.Update(entity));
         }
 
         // DELETE api/values/5

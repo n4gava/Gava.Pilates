@@ -1,6 +1,4 @@
 ﻿using Gava.Framework.Entities;
-using Gava.Framework.WebApi;
-using Gava.Pilates.Models;
 using System;
 
 namespace Gava.Pilates.Business.Entities

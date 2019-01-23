@@ -5,19 +5,44 @@ using System.Threading.Tasks;
 using Gava.Framework.WebApi;
 using Gava.Pilates.Business.Business;
 using Gava.Pilates.Business.Entities;
-using Gava.Pilates.Models;
+using Gava.Pilates.WebApi.Data;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gava.Pilates.WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PatientController : BaseEntityController<Patient, PatientVO>
+    public class PatientController : ODataController
     {
-        public PatientController(DbContext dbContext, PatientsBusiness patientsBusiness) : base(dbContext, patientsBusiness)
-        {
+        AppDbContext _dbContext;
 
+        public PatientController(AppDbContext dbContext, PatientsBusiness patientsBusiness)
+        {
+            _dbContext = dbContext;
         }
+
+        [EnableQuery]
+        public IQueryable<Patient> Get()
+        {
+            return _dbContext.Patients;
+        }
+
+        [EnableQuery]
+        public SingleResult Get(int id)
+        {
+            var result = _dbContext.Patients.Where(p => p.Id == id);
+            return SingleResult.Create(result);
+        }
+
+        [HttpPost]
+        public ActionResult Post([FromBody] Patient patient)
+        {
+            _dbContext.Patients.Add(patient);
+            _dbContext.SaveChanges();
+            return Ok(patient);
+        }
+
+
+
     }
 }

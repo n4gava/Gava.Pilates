@@ -14,6 +14,6 @@ namespace Gava.Pilates.WebApi.Data
             this.Database.Migrate();
         }
 
-        public DbSet<Patient> Pacients { get; set; }
+        public DbSet<Patient> Patients { get; set; }
     }
 }

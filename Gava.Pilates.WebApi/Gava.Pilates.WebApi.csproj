@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
   </ItemGroup>
@@ -17,7 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Gava.Framework.WebApi\Gava.Framework.WebApi.csproj" />
     <ProjectReference Include="..\Gava.Pilates.Business\Gava.Pilates.Business.csproj" />
-    <ProjectReference Include="..\Gava.Pilates.Models\Gava.Pilates.Models.csproj" />
   </ItemGroup>
 
 </Project>
