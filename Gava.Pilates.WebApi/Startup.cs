@@ -49,14 +49,15 @@ namespace Gava.Pilates.WebApi
             app.UseHttpsRedirection();
             app.UseMvc(b =>
             {
-                b.MapODataServiceRoute("oData", "odata", GetEdmModel());
+                b.Count().Filter().OrderBy().Expand().Select().MaxTop(null);
+                b.MapODataServiceRoute("odata", "odata", GetEdmModel());
             });
         }
 
         private static IEdmModel GetEdmModel()
         {
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-            builder.EntitySet<Patient>("Patients");
+            builder.EntitySet<Patient>(nameof(Patient));
             return builder.GetEdmModel();
         }
     }
